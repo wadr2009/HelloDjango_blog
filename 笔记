@@ -1,0 +1,20 @@
+
+虚拟环境
+pipenv:
+     在目录中执行pipenv install 创建一个虚拟环境
+     执行pipenv shell 激活虚拟环境
+
+django manage
+pipenv run python manage.py migrate
+    建立应用:startapp 应用名
+    启动服务runserver
+    迁移数据库：
+        生成模型 makemigrations
+        生成数据库语言 migrate
+    查看Django建标过程：sqlmigrate blog 0001
+    创建用户 createsuperuser
+
+Http
+    1、django 如何接收 HTTP 请求？
+    2、django 如何处理这个 HTTP 请求？
+    3、django 如何生成 HTTP 响应？
