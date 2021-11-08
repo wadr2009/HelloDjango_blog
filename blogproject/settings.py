@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'blog',
     'blog.apps.BlogConfig',
+    'comments.apps.CommentsConfig', # 注册 comments 应用
     'debug_toolbar.apps.DebugToolbarConfig'
 ]
 

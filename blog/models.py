@@ -1,3 +1,4 @@
+import markdown
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -6,6 +7,7 @@ from django.db import models
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 """
 文章的分类
@@ -104,9 +106,11 @@ class Post(models.Model):
         return reverse('blog:detail', kwargs={'id': self.id})
 
 
-    # def save(self, force_insert=False, force_update=False, using=None,
-    #          update_fields=None):
-    #     self.modified_time = timezone.now()
-    #     super().save(force_insert=False, force_update=False, using=None,
-    #          update_fields=None)
+    def save(self, *args, **kwargs):
+        md = markdown.Markdown(extensions=[
+            'markdown.extensions.extra',
+            'markdown.extensions.codehilite',
+        ])
+        self.excerpt = strip_tags(md.convert(self.body))[:54]
+        super().save( *args, **kwargs)
 
