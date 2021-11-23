@@ -18,9 +18,12 @@
       </div>
     </article>
     <section class="comment-area">
-         <hr>
-         <h3>发表评论</h3>
-         {% show_comment_form post %}
+        <hr>
+        <h3>发表评论</h3>
+        {% show_comment_form post %}
+        <div class="comment-list-panel">
+            {% show_comments post %}
+        </div>
 
          <div class="comment-list-panel">
              <h3>评论列表，共 <span>4</span> 条评论</h3>
